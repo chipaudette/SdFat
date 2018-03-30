@@ -7,12 +7,12 @@
  * writes to file structures.
  */
 #include <SPI.h> 
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #include <SdFatUtil.h>
 
 const uint8_t SD_CHIP_SELECT = SS;
 
-SdFat sd;
+SdFat_Gre sd;
 
 // store error strings in flash to save RAM
 #define error(s) sd.errorHalt(F(s))
@@ -22,7 +22,7 @@ SdFat sd;
  */
 void deleteFiles(FatFile* dir) {
   char name[32];
-  SdFile file;
+  SdFile_Gre file;
  
   // open and delete files
   for (uint16_t n = 0; ; n++){
@@ -73,13 +73,13 @@ void setup() {
   }
   
   // open SUB1 and delete files
-  SdFile sub1;
+  SdFile_Gre sub1;
   if (!sub1.open("SUB1", O_READ)) error("open SUB1 failed");
   Serial.println(F("Remove files in SUB1"));
   deleteFiles(&sub1);
 
   // open SUB2 and delete files
-  SdFile sub2;
+  SdFile_Gre sub2;
   if (!sub2.open(&sub1, "SUB2", O_READ)) error("open SUB2 failed");
   Serial.println(F("Remove files in SUB2"));
   deleteFiles(&sub2);

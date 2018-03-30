@@ -4,7 +4,7 @@
 // This example will also run on an Uno and other boards using software SPI.
 //
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #if ENABLE_SOFTWARE_SPI_CLASS  // Must be set in SdFat/SdFatConfig.h
 //
 // Pin numbers in templates must be constants.
@@ -19,7 +19,7 @@ const uint8_t SD_CHIP_SELECT_PIN = 10;
 SdFatSoftSpi<SOFT_MISO_PIN, SOFT_MOSI_PIN, SOFT_SCK_PIN> sd;
 
 // Test file.
-SdFile file;
+SdFile_Gre file;
 
 void setup() {
   Serial.begin(9600);

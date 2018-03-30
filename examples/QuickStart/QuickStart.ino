@@ -1,7 +1,7 @@
 // Quick hardware test for SPI card access.
 //
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 //
 // Set DISABLE_CHIP_SELECT to disable a second SPI device.
 // For example, with the Ethernet shield, set DISABLE_CHIP_SELECT
@@ -14,7 +14,7 @@ const int8_t DISABLE_CHIP_SELECT = -1;
 #define SPI_SPEED SD_SCK_MHZ(4)
 //------------------------------------------------------------------------------
 // File system object.
-SdFat sd;
+SdFat_Gre sd;
 
 // Serial streams
 ArduinoOutStream cout(Serial);

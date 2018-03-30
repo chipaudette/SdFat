@@ -5,7 +5,7 @@
 // not both be used in a program.
 // Each has its own cache and member variables.
 
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // 32 KiB buffer.
 const size_t BUF_DIM = 32768;
@@ -17,7 +17,7 @@ SdFatSdio sd;
 
 SdFatSdioEX sdEx;
 
-File file;
+File_Gre file;
 
 uint8_t buf[BUF_DIM];
 

@@ -19,11 +19,11 @@
 
 #include <SPI.h>
 //#include <SD.h>
-#include "SdFat.h"
-SdFat SD;
+#include "SdFat_Gre.h"
+SdFat_Gre SD;
 
 #define SD_CS_PIN SS
-File myFile;
+File_Gre myFile;
 
 void setup() {
   // Open serial communications and wait for port to open:

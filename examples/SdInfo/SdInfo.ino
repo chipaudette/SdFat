@@ -2,7 +2,7 @@
  * This program attempts to initialize an SD card and analyze its structure.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // Set USE_SDIO to zero for SPI card access. 
 #define USE_SDIO 0
@@ -27,7 +27,7 @@ const int8_t DISABLE_CHIP_SELECT = -1;
 SdFatSdioEX sd;
 // SdFatSdio sd;
 #else // USE_SDIO
-SdFat sd;
+SdFat_Gre sd;
 #endif  // USE_SDIO
 
 // serial output steam
@@ -43,7 +43,7 @@ uint32_t eraseSize;
 #define sdErrorMsg(msg) sd.errorPrint(F(msg));
 //------------------------------------------------------------------------------
 uint8_t cidDmp() {
-  cid_t cid;
+  cid_Gre_t cid;
   if (!sd.card()->readCID(&cid)) {
     sdErrorMsg("readCID failed");
     return false;
@@ -66,7 +66,7 @@ uint8_t cidDmp() {
 }
 //------------------------------------------------------------------------------
 uint8_t csdDmp() {
-  csd_t csd;
+  csd_Gre_t csd;
   uint8_t eraseSingleBlock;
   if (!sd.card()->readCSD(&csd)) {
     sdErrorMsg("readCSD failed");
@@ -152,7 +152,7 @@ void setup() {
   cout << uppercase << showbase << endl;
 
   // F stores strings in flash to save RAM
-  cout << F("SdFat version: ") << SD_FAT_VERSION << endl;
+  cout << F("SdFat_Gre version: ") << SD_FAT_VERSION << endl;
 #if !USE_SDIO  
   if (DISABLE_CHIP_SELECT < 0) {
     cout << F(

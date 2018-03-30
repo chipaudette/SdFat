@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -22,8 +22,8 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-#ifndef SdInfo_h
-#define SdInfo_h
+#ifndef SdInfo_Gre_h
+#define SdInfo_Gre_h
 #include <stdint.h>
 // Based on the document:
 //
@@ -263,10 +263,10 @@ const uint8_t DATA_RES_MASK = 0X1F;
 const uint8_t DATA_RES_ACCEPTED = 0X05;
 //==============================================================================
 /**
- * \class CID
+ * \class CID_Gre
  * \brief Card IDentification (CID) register.
  */
-typedef struct CID {
+typedef struct CID_Gre {
   // byte 0
   /** Manufacturer ID */
   unsigned char mid;
@@ -299,14 +299,14 @@ typedef struct CID {
   unsigned char always1 : 1;
   /** CRC7 checksum */
   unsigned char crc : 7;
-} __attribute__((packed)) cid_t;
+} __attribute__((packed)) cid_Gre_t;
 
 //==============================================================================
 /**
- * \class CSDV1
+ * \class CSDV1_Gre
  * \brief CSD register for version 1.00 cards .
  */
-typedef struct CSDV1 {
+typedef struct CSDV1_Gre {
   // byte 0
   unsigned char reserved1 : 6;
   unsigned char csd_ver : 2;
@@ -368,10 +368,10 @@ typedef struct CSDV1 {
 } __attribute__((packed)) csd1_t;
 //==============================================================================
 /**
- * \class CSDV2
+ * \class CSDV2_Gre
  * \brief CSD register for version 2.00 cards.
  */
-typedef struct CSDV2 {
+typedef struct CSDV2_Gre {
   // byte 0
   unsigned char reserved1 : 6;
   unsigned char csd_ver : 2;
@@ -453,15 +453,15 @@ typedef struct CSDV2 {
 } __attribute__((packed)) csd2_t;
 //==============================================================================
 /**
- * \class csd_t
+ * \class csd_Gre_t
  * \brief Union of old and new style CSD register.
  */
-union csd_t {
+union csd_Gre_t {
   csd1_t v1;
   csd2_t v2;
 };
 //-----------------------------------------------------------------------------
-inline uint32_t sdCardCapacity(csd_t* csd) {
+inline uint32_t sdCardCapacity(csd_Gre_t* csd) {
   if (csd->v1.csd_ver == 0) {
     uint8_t read_bl_len = csd->v1.read_bl_len;
     uint16_t c_size = (csd->v1.c_size_high << 10)
@@ -477,4 +477,4 @@ inline uint32_t sdCardCapacity(csd_t* csd) {
     return 0;
   }
 }
-#endif  // SdInfo_h
+#endif  // SdInfo_Gre_h

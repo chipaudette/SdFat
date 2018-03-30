@@ -8,15 +8,15 @@
 //#include <SD.h>
 
 // next two lines for SdFat
-#include <SdFat.h>
-SdFat SD;
+#include <SdFat_Gre.h>
+SdFat_Gre SD;
 
 #define CS_PIN SS
 
 // example can use comma or semicolon
 #define CSV_DELIM ','
 
-File file;
+File_Gre file;
 
 /*
  * Read a file one field at a time.

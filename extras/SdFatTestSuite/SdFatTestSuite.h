@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -24,7 +24,7 @@
  */
 #ifndef SdFatTestSuite_h
 #define SdFatTestSuite_h
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 #if defined(__arm__) && !defined(strcmp_P)

@@ -1,7 +1,7 @@
 // A simple data logger for the Arduino analog pins with optional DS1307
 // uses RTClib from https://github.com/adafruit/RTClib
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 #define SD_CHIP_SELECT  SS  // SD chip select pin
@@ -13,7 +13,7 @@
 #define ADC_DELAY       10  // ADC delay for high impedence sensors
 
 // file system object
-SdFat sd;
+SdFat_Gre sd;
 
 // text file for logging
 ofstream logfile;
@@ -92,7 +92,7 @@ void setup() {
   }
 
   // set date time callback function
-  SdFile::dateTimeCallback(dateTime);
+  SdFile_Gre::dateTimeCallback(dateTime);
   DateTime now = RTC.now();
   cout  << now << endl;
 #endif  // USE_DS1307

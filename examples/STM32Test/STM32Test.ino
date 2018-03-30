@@ -3,18 +3,18 @@
  * Note SPI speed is limited to 18 MHz.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 // set ENABLE_EXTENDED_TRANSFER_CLASS non-zero to use faster EX classes
 
 // Use first SPI port
-SdFat sd1(1);
+SdFat_Gre sd1(1);
 // SdFatEX sd1(1);
 const uint8_t SD1_CS = PA4;  // chip select for sd1
 
 // Use second SPI port
-SdFat sd2(2);
+SdFat_Gre sd2(2);
 // SdFatEX sd2(2);
 const uint8_t SD2_CS = PB12;   // chip select for sd2
 
@@ -103,7 +103,7 @@ void setup() {
   sd1.chvol();
 
   // create or open /Dir1/test.bin and truncate it to zero length
-  SdFile file1;
+  SdFile_Gre file1;
   if (!file1.open("test.bin", O_RDWR | O_CREAT | O_TRUNC)) {
     sd1.errorExit("file1");
   }
@@ -119,7 +119,7 @@ void setup() {
   sd2.chvol();
 
   // create or open /Dir2/copy.bin and truncate it to zero length
-  SdFile file2;
+  SdFile_Gre file2;
   if (!file2.open("copy.bin", O_WRITE | O_CREAT | O_TRUNC)) {
     sd2.errorExit("file2");
   }

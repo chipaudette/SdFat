@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -169,8 +169,8 @@ static volatile bool m_dmaBusy = false;
 static volatile uint32_t m_irqstat;
 static uint32_t m_sdClkKhz = 0;
 static uint32_t m_ocr;
-static cid_t m_cid;
-static csd_t m_csd;
+static cid_Gre_t m_cid;
+static csd_Gre_t m_csd;
 //=============================================================================
 #define USE_DEBUG_MODE 0
 #if USE_DEBUG_MODE

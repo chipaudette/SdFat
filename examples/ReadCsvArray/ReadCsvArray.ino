@@ -1,15 +1,15 @@
 // Read a two dimensional array from a CSV file.
 //
 #include <SPI.h>
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #define CS_PIN SS
 
 // 5 X 4 array
 #define ROW_DIM 5
 #define COL_DIM 4
 
-SdFat SD;
-File file;
+SdFat_Gre SD;
+File_Gre file;
 
 /*
  * Read a file one field at a time.

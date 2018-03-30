@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -30,7 +30,7 @@
  */
 #include <stddef.h>
 #include "SysCall.h"
-#include "SdInfo.h"
+#include "SdInfo_Gre.h"
 #include "../FatLib/BaseBlockDriver.h"
 #include "../SpiDriver/SdSpiDriver.h"
 //==============================================================================
@@ -88,7 +88,7 @@ class SdSpiCard {
     m_errorCode = code;
   }
   /**
-   * \return code for the last error. See SdInfo.h for a list of error codes.
+   * \return code for the last error. See SdInfo_Gre.h for a list of error codes.
    */
   int errorCode() const {
     return m_errorCode;
@@ -131,7 +131,7 @@ class SdSpiCard {
    *
    * \return true for success or false for failure.
    */
-  bool readCID(cid_t* cid) {
+  bool readCID(cid_Gre_t* cid) {
     return readRegister(CMD10, cid);
   }
   /**
@@ -142,7 +142,7 @@ class SdSpiCard {
    *
    * \return true for success or false for failure.
    */
-  bool readCSD(csd_t* csd) {
+  bool readCSD(csd_Gre_t* csd) {
     return readRegister(CMD9, csd);
   }
   /** Read one data block in a multiple block read sequence

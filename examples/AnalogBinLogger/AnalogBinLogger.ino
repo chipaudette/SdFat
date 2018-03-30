@@ -21,7 +21,7 @@
  */
 #ifdef __AVR__
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 #include "AnalogBinLogger.h"
 //------------------------------------------------------------------------------
@@ -141,9 +141,9 @@ const uint16_t ISR_SETUP_ADC = PIN_COUNT > 1 ? 100 : 0;
 // Maximum cycles for timer0 system interrupt, millis, micros.
 const uint16_t ISR_TIMER0 = 160;
 //==============================================================================
-SdFat sd;
+SdFat_Gre sd;
 
-SdBaseFile binFile;
+SdBaseFile_Gre binFile;
 
 char binName[13] = FILE_BASE_NAME "00.bin";
 

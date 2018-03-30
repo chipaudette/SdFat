@@ -1,11 +1,11 @@
 // Demo of fgets function to read lines from a file.
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
-SdFat sd;
+SdFat_Gre sd;
 // print stream
 ArduinoOutStream cout(Serial);
 //------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ void demoFgets() {
   char line[25];
   int n;
   // open test file
-  SdFile rdfile("fgets.txt", O_READ);
+  SdFile_Gre rdfile("fgets.txt", O_READ);
 
   // check for open error
   if (!rdfile.isOpen()) {
@@ -40,7 +40,7 @@ void demoFgets() {
 //------------------------------------------------------------------------------
 void makeTestFile() {
   // create or open test file
-  SdFile wrfile("fgets.txt", O_WRITE | O_CREAT | O_TRUNC);
+  SdFile_Gre wrfile("fgets.txt", O_WRITE | O_CREAT | O_TRUNC);
 
   // check for open error
   if (!wrfile.isOpen()) {

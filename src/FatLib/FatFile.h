@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -34,7 +34,7 @@
 #include <limits.h>
 #include "FatLibConfig.h"
 #include "FatApiConstants.h"
-#include "FatStructs.h"
+#include "FatStructs_Gre.h"
 #include "FatVolume.h"
 class FatFileSystem;
 //------------------------------------------------------------------------------

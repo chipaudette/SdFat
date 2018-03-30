@@ -1,5 +1,5 @@
 #include <SPI.h>
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #include <SdFatTestSuite.h>
 //------------------------------------------------------------------------------
 void ostreamBool() {

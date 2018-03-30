@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -58,7 +58,7 @@ class SdioCard : public BaseBlockDriver {
    */
   bool erase(uint32_t firstBlock, uint32_t lastBlock);
   /**
-   * \return code for the last error. See SdInfo.h for a list of error codes.
+   * \return code for the last error. See SdInfo_Gre.h for a list of error codes.
    */
   uint8_t errorCode();
   /** \return error data for last error. */

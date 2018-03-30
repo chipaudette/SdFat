@@ -2,13 +2,13 @@
  * Append a line to a file - demo of pathnames and streams
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
 // file system object
-SdFat sd;
+SdFat_Gre sd;
 
 // define a serial output stream
 ArduinoOutStream cout(Serial);

@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -22,27 +22,27 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-#ifndef SdFat_h
-#define SdFat_h
+#ifndef SdFat_Gre_h
+#define SdFat_Gre_h
 /**
  * \file
- * \brief SdFat class
+ * \brief SdFat_Gre class
  */
 #include "SysCall.h"
 #include "BlockDriver.h"
 #include "FatLib/FatLib.h"
 #include "SdCard/SdioCard.h"
 //------------------------------------------------------------------------------
-/** SdFat version */
+/** SdFat_Gre version */
 #define SD_FAT_VERSION "1.0.5"
 //==============================================================================
 /**
- * \class SdBaseFile
+ * \class SdBaseFile_Gre
  * \brief Class for backward compatibility.
  */
-class SdBaseFile : public FatFile {
+class SdBaseFile_Gre : public FatFile {	
  public:
-  SdBaseFile() {}
+  SdBaseFile_Gre() {}
   /**  Create a file object and open it in the current working directory.
    *
    * \param[in] path A path for a file to be opened.
@@ -51,17 +51,17 @@ class SdBaseFile : public FatFile {
    * bitwise-inclusive OR of open flags. see
    * FatFile::open(FatFile*, const char*, uint8_t).
    */
-  SdBaseFile(const char* path, uint8_t oflag) : FatFile(path, oflag) {}
+  SdBaseFile_Gre(const char* path, uint8_t oflag) : FatFile(path, oflag) {}
 };
 //-----------------------------------------------------------------------------
 #if ENABLE_ARDUINO_FEATURES
 /**
- * \class SdFile
+ * \class SdFile_Gre
  * \brief Class for backward compatibility.
  */
-class SdFile : public PrintFile {
+class SdFile_Gre : public PrintFile {
  public:
-  SdFile() {}
+  SdFile_Gre() {}
   /**  Create a file object and open it in the current working directory.
    *
    * \param[in] path A path for a file to be opened.
@@ -70,16 +70,16 @@ class SdFile : public PrintFile {
    * bitwise-inclusive OR of open flags. see
    * FatFile::open(FatFile*, const char*, uint8_t).
    */
-  SdFile(const char* path, uint8_t oflag) : PrintFile(path, oflag) {}
+  SdFile_Gre(const char* path, uint8_t oflag) : PrintFile(path, oflag) {}
 };
 #endif  // #if ENABLE_ARDUINO_FEATURES
 //-----------------------------------------------------------------------------
 /**
- * \class SdFileSystem
- * \brief Virtual base class for %SdFat library.
+ * \class SdFileSystem_Gre
+ * \brief Virtual base class for %SdFat_Gre library.
  */
 template<class SdDriverClass>
-class SdFileSystem : public FatFileSystem {
+class SdFileSystem_Gre : public FatFileSystem {
  public:
   /** Initialize file system.
    * \return true for success else false.
@@ -301,19 +301,19 @@ class SdFileSystem : public FatFileSystem {
 };
 //==============================================================================
 /**
- * \class SdFat
- * \brief Main file system class for %SdFat library.
+ * \class SdFat_Gre
+ * \brief Main file system class for %SdFat_Gre library.
  */
-class SdFat : public SdFileSystem<SdSpiCard> {
+class SdFat_Gre : public SdFileSystem_Gre<SdSpiCard> {
  public:
 #if IMPLEMENT_SPI_PORT_SELECTION || defined(DOXYGEN)
-  SdFat() {
+  SdFat_Gre() {
     m_spi.setPort(0);
   }
   /** Constructor with SPI port selection.
    * \param[in] spiPort SPI port number.
    */
-  explicit SdFat(uint8_t spiPort) {
+  explicit SdFat_Gre(uint8_t spiPort) {
     m_spi.setPort(spiPort);
   }
 #endif  // IMPLEMENT_SPI_PORT_SELECTION
@@ -325,7 +325,7 @@ class SdFat : public SdFileSystem<SdSpiCard> {
    */
   bool begin(uint8_t csPin = SS, SPISettings spiSettings = SPI_FULL_SPEED) {
     return m_card.begin(&m_spi, csPin, spiSettings) &&
-           SdFileSystem::begin();
+           SdFileSystem_Gre::begin();
   }
   /** Initialize SD card for diagnostic use only.
    *
@@ -350,15 +350,15 @@ class SdFat : public SdFileSystem<SdSpiCard> {
 #if ENABLE_SDIO_CLASS || defined(DOXYGEN)
 /**
  * \class SdFatSdio
- * \brief SdFat class using SDIO.
+ * \brief SdFat_Gre class using SDIO.
  */
-class SdFatSdio : public SdFileSystem<SdioCard> {
+class SdFatSdio : public SdFileSystem_Gre<SdioCard> {
  public:
   /** Initialize SD card and file system.
    * \return true for success else false.
    */
   bool begin() {
-    return m_card.begin() && SdFileSystem::begin();
+    return m_card.begin() && SdFileSystem_Gre::begin();
   }
   /** Initialize SD card for diagnostic use only.
    *
@@ -371,22 +371,22 @@ class SdFatSdio : public SdFileSystem<SdioCard> {
    * \return true for success else false.
    */
   bool fsBegin() {
-    return SdFileSystem::begin();
+    return SdFileSystem_Gre::begin();
   }
 };
 #if ENABLE_SDIOEX_CLASS || defined(DOXYGEN)
 //-----------------------------------------------------------------------------
 /**
  * \class SdFatSdioEX
- * \brief SdFat class using SDIO.
+ * \brief SdFat_Gre class using SDIO.
  */
-class SdFatSdioEX : public SdFileSystem<SdioCardEX> {
+class SdFatSdioEX : public SdFileSystem_Gre<SdioCardEX> {
  public:
   /** Initialize SD card and file system.
    * \return true for success else false.
    */
   bool begin() {
-    return m_card.begin() && SdFileSystem::begin();
+    return m_card.begin() && SdFileSystem_Gre::begin();
   }
   /** \return Pointer to SD card object */
   SdioCardEX* card() {
@@ -403,7 +403,7 @@ class SdFatSdioEX : public SdFileSystem<SdioCardEX> {
    * \return true for success else false.
    */
   bool fsBegin() {
-    return SdFileSystem::begin();
+    return SdFileSystem_Gre::begin();
   }
 };
 #endif  // ENABLE_SDIOEX_CLASS || defined(DOXYGEN)
@@ -412,10 +412,10 @@ class SdFatSdioEX : public SdFileSystem<SdioCardEX> {
 #if ENABLE_SOFTWARE_SPI_CLASS || defined(DOXYGEN)
 /**
  * \class SdFatSoftSpi
- * \brief SdFat class using software SPI.
+ * \brief SdFat_Gre class using software SPI.
  */
 template<uint8_t MisoPin, uint8_t MosiPin, uint8_t SckPin>
-class SdFatSoftSpi : public SdFileSystem<SdSpiCard>  {
+class SdFatSoftSpi : public SdFileSystem_Gre<SdSpiCard>  {
  public:
   /** Initialize SD card and file system.
    *
@@ -425,7 +425,7 @@ class SdFatSoftSpi : public SdFileSystem<SdSpiCard>  {
    */
   bool begin(uint8_t csPin = SS, SPISettings spiSettings = SPI_FULL_SPEED) {
     return m_card.begin(&m_spi, csPin, spiSettings) &&
-           SdFileSystem::begin();
+           SdFileSystem_Gre::begin();
   }
  private:
   SdSpiSoftDriver<MisoPin, MosiPin, SckPin> m_spi;
@@ -435,9 +435,9 @@ class SdFatSoftSpi : public SdFileSystem<SdSpiCard>  {
 #if ENABLE_EXTENDED_TRANSFER_CLASS || defined(DOXYGEN)
 /**
  * \class SdFatEX
- * \brief SdFat class with extended SD I/O.
+ * \brief SdFat_Gre class with extended SD I/O.
  */
-class SdFatEX : public SdFileSystem<SdSpiCardEX> {
+class SdFatEX : public SdFileSystem_Gre<SdSpiCardEX> {
  public:
 #if IMPLEMENT_SPI_PORT_SELECTION  || defined(DOXYGEN)
   SdFatEX() {
@@ -458,7 +458,7 @@ class SdFatEX : public SdFileSystem<SdSpiCardEX> {
   */
   bool begin(uint8_t csPin = SS, SPISettings spiSettings = SPI_FULL_SPEED) {
     return m_card.begin(&m_spi, csPin, spiSettings) &&
-           SdFileSystem::begin();
+           SdFileSystem_Gre::begin();
   }
 
  private:
@@ -468,10 +468,10 @@ class SdFatEX : public SdFileSystem<SdSpiCardEX> {
 #if ENABLE_SOFTWARE_SPI_CLASS || defined(DOXYGEN)
 /**
  * \class SdFatSoftSpiEX
- * \brief SdFat class using software SPI and extended SD I/O.
+ * \brief SdFat_Gre class using software SPI and extended SD I/O.
  */
 template<uint8_t MisoPin, uint8_t MosiPin, uint8_t SckPin>
-class SdFatSoftSpiEX : public SdFileSystem<SdSpiCardEX>  {
+class SdFatSoftSpiEX : public SdFileSystem_Gre<SdSpiCardEX>  {
  public:
   /** Initialize SD card and file system.
    *
@@ -481,7 +481,7 @@ class SdFatSoftSpiEX : public SdFileSystem<SdSpiCardEX>  {
    */
   bool begin(uint8_t csPin = SS, SPISettings spiSettings = SPI_FULL_SPEED) {
     return m_card.begin(&m_spi, csPin, spiSettings) &&
-           SdFileSystem::begin();
+           SdFileSystem_Gre::begin();
   }
  private:
   SdSpiSoftDriver<MisoPin, MosiPin, SckPin> m_spi;
@@ -506,4 +506,4 @@ class Sd2Card : public SdSpiCard {
  private:
   SdFatSpiDriver m_spi;
 };
-#endif  // SdFat_h
+#endif  // SdFat_Gre_h

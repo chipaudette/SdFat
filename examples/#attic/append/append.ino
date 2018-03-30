@@ -6,13 +6,13 @@
  * The program will open and close the file 100 times.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
 // file system object
-SdFat sd;
+SdFat_Gre sd;
 
 // create Serial stream
 ArduinoOutStream cout(Serial);

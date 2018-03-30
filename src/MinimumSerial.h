@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -32,7 +32,7 @@
 //==============================================================================
 /**
  * \class MinimumSerial
- * \brief mini serial class for the %SdFat library.
+ * \brief mini serial class for the %SdFat_Gre library.
  */
 class MinimumSerial : public Print {
  public:

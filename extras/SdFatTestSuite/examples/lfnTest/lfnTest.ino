@@ -1,9 +1,9 @@
 #include <SPI.h>
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #include <SdFatUtil.h>
 const uint8_t SD_CS_PIN = SS;
-SdFat sd;
-SdFile file;
+SdFat_Gre sd;
+SdFile_Gre file;
 char name[260];
 
 //------------------------------------------------------------------------------

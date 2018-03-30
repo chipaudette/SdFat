@@ -2,7 +2,7 @@
  * This program is a simple binary write/read benchmark.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 // Set USE_SDIO to zero for SPI card access. 
@@ -37,7 +37,7 @@ uint8_t buf[BUF_SIZE];
 // Faster version.
 SdFatSdioEX sd;
 #else  // USE_SDIO
-SdFat sd;
+SdFat_Gre sd;
 #endif  // USE_SDIO
 
 // Set ENABLE_EXTENDED_TRANSFER_CLASS to use extended SD I/O.
@@ -49,7 +49,7 @@ SdFat sd;
 // SdFatSoftSpi<6, 7, 5> sd;
 
 // test file
-SdFile file;
+SdFile_Gre file;
 
 // Serial output stream
 ArduinoOutStream cout(Serial);
@@ -58,7 +58,7 @@ ArduinoOutStream cout(Serial);
 #define error(s) sd.errorHalt(F(s))
 //------------------------------------------------------------------------------
 void cidDmp() {
-  cid_t cid;
+  cid_Gre_t cid;
   if (!sd.card()->readCID(&cid)) {
     error("readCID failed");
   }

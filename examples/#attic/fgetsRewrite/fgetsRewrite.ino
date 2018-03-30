@@ -1,12 +1,12 @@
 // Demo of rewriting a line read by fgets
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD card chip select pin
 const uint8_t chipSelect = SS;
 
 // file system
-SdFat sd;
+SdFat_Gre sd;
 
 // print stream
 ArduinoOutStream cout(Serial);
@@ -20,7 +20,7 @@ void demoFgets() {
   uint32_t pos;
 
   // open test file
-  SdFile rdfile("fgets.txt", O_RDWR);
+  SdFile_Gre rdfile("fgets.txt", O_RDWR);
 
   // check for open error
   if (!rdfile.isOpen()) {
@@ -65,7 +65,7 @@ void demoFgets() {
 //------------------------------------------------------------------------------
 void makeTestFile() {
   // create or open test file
-  SdFile wrfile("fgets.txt", O_WRITE | O_CREAT | O_TRUNC);
+  SdFile_Gre wrfile("fgets.txt", O_WRITE | O_CREAT | O_TRUNC);
 
   // check for open error
   if (!wrfile.isOpen()) {

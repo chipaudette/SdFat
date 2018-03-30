@@ -5,7 +5,7 @@
 #include <SPI.h>
 #include <SD.h>
 
-File file;
+File_Gre file;
 //------------------------------------------------------------------------------
 void setup() {
   Serial.begin(9600);

@@ -15,7 +15,7 @@ const uint8_t chipSelect = SS;
 uint8_t buf[BUF_SIZE];
 
 // test file
-File file;
+File_Gre file;
 
 //------------------------------------------------------------------------------
 void error(const char* s) {

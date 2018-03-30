@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -283,7 +283,7 @@ class SdSpiSoftDriver : public SdSpiBaseDriver {
 };
 #endif  // ENABLE_SOFTWARE_SPI_CLASS || defined(DOXYGEN)
 //-----------------------------------------------------------------------------
-// Choose SPI driver for SdFat and SdFatEX classes.
+// Choose SPI driver for SdFat_Gre and SdFatEX classes.
 #if USE_STANDARD_SPI_LIBRARY || !SD_HAS_CUSTOM_SPI
 /** SdFat uses Arduino library SPI. */
 typedef SdSpiLibDriver SdFatSpiDriver;

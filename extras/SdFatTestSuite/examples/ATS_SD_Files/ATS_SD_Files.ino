@@ -1,13 +1,13 @@
 // modified from ArduinoTestSuite 0022 by William Greiman
 #include <SPI.h>
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #include <SdFatTestSuite.h>
-SdFat SD;
+SdFat_Gre SD;
 #define ATS_PrintTestStatus(msg, b) testVerify_P(b, PSTR(msg))
 
 void setup() {
   boolean b;
-  SdFile f;
+  SdFile_Gre f;
 
   testBegin();
 

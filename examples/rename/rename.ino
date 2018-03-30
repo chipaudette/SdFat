@@ -1,15 +1,15 @@
 /*
- * This program demonstrates use of SdFile::rename()
- * and SdFat::rename().
+ * This program demonstrates use of SdFile_Gre::rename()
+ * and SdFat_Gre::rename().
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
 // file system
-SdFat sd;
+SdFat_Gre sd;
 
 // Serial print stream
 ArduinoOutStream cout(Serial);
@@ -45,7 +45,7 @@ void setup() {
     }
   }
   // create a file and write one line to the file
-  SdFile file("Name1.txt", O_WRITE | O_CREAT);
+  SdFile_Gre file("Name1.txt", O_WRITE | O_CREAT);
   if (!file.isOpen()) {
     error("Name1.txt");
   }

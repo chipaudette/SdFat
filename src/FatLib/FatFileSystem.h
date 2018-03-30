@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -85,10 +85,10 @@ class FatFileSystem : public  FatVolume {
    *
    * \param[in] path location of file to be opened.
    * \param[in] mode open mode flags.
-   * \return a File object.
+   * \return a File_Gre object.
    */
-  File open(const char *path, uint8_t mode = FILE_READ) {
-    File tmpFile;
+  File_Gre open(const char *path, uint8_t mode = FILE_READ) {
+    File_Gre tmpFile;
     tmpFile.open(vwd(), path, mode);
     return tmpFile;
   }
@@ -98,7 +98,7 @@ class FatFileSystem : public  FatVolume {
    * \param[in] mode open mode flags.
    * \return a File object.
    */
-  File open(const String &path, uint8_t mode = FILE_READ) {
+  File_Gre open(const String &path, uint8_t mode = FILE_READ) {
     return open(path.c_str(), mode );
   }
 #endif  // ENABLE_ARDUINO_FEATURES

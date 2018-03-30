@@ -3,11 +3,11 @@
  * and the timestamp() function.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
-SdFat sd;
+SdFat_Gre sd;
 
-SdFile file;
+SdFile_Gre file;
 
 // Default SD chip select is SS pin
 const uint8_t chipSelect = SS;
@@ -34,7 +34,7 @@ uint8_t second = 40;
 //------------------------------------------------------------------------------
 /*
  * User provided date time callback function.
- * See SdFile::dateTimeCallback() for usage.
+ * See SdFile_Gre::dateTimeCallback() for usage.
  */
 void dateTime(uint16_t* date, uint16_t* time) {
   // User gets date and time from GPS or real-time
@@ -112,10 +112,10 @@ void setup(void) {
    * modified by sync().
    *
    * The callback can be disabled by the call
-   * SdFile::dateTimeCallbackCancel()
+   * SdFile_Gre::dateTimeCallbackCancel()
    */
   // set date time callback function
-  SdFile::dateTimeCallback(dateTime);
+  SdFile_Gre::dateTimeCallback(dateTime);
 
   // create a new file with callback timestamps
   if (!file.open("callback.txt", O_CREAT | O_WRITE)) {
@@ -147,7 +147,7 @@ void setup(void) {
    * Cancel callback so sync will not
    * change access/modify timestamp
    */
-  SdFile::dateTimeCallbackCancel();
+  SdFile_Gre::dateTimeCallbackCancel();
 
   // create a new file with default timestamps
   if (!file.open("stamp.txt", O_CREAT | O_WRITE)) {

@@ -3,13 +3,13 @@
  *  Each line of the file has a label and three values, a long and two floats.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
 // file system object
-SdFat sd;
+SdFat_Gre sd;
 
 // create Serial stream
 ArduinoOutStream cout(Serial);

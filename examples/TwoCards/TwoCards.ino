@@ -3,13 +3,13 @@
  * Example use of two SD cards.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
-SdFat sd1;
+SdFat_Gre sd1;
 const uint8_t SD1_CS = 10;  // chip select for sd1
 
-SdFat sd2;
+SdFat_Gre sd2;
 const uint8_t SD2_CS = 4;   // chip select for sd2
 
 const uint8_t BUF_DIM = 100;
@@ -100,7 +100,7 @@ void setup() {
   sd1.chvol();
 
   // create or open /Dir1/test.bin and truncate it to zero length
-  SdFile file1;
+  SdFile_Gre file1;
   if (!file1.open("test.bin", O_RDWR | O_CREAT | O_TRUNC)) {
     sd1.errorExit("file1");
   }
@@ -116,7 +116,7 @@ void setup() {
   sd2.chvol();
 
   // create or open /Dir2/copy.bin and truncate it to zero length
-  SdFile file2;
+  SdFile_Gre file2;
   if (!file2.open("copy.bin", O_WRITE | O_CREAT | O_TRUNC)) {
     sd2.errorExit("file2");
   }

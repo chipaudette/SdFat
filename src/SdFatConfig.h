@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -65,7 +65,7 @@
 #define ENABLE_EXTENDED_TRANSFER_CLASS 0
 //-----------------------------------------------------------------------------
 /**
- * If the symbol USE_STANDARD_SPI_LIBRARY is nonzero, the classes SdFat and
+ * If the symbol USE_STANDARD_SPI_LIBRARY is nonzero, the classes SdFat_Gre and
  * SdFatEX use the standard Arduino SPI.h library. If USE_STANDARD_SPI_LIBRARY
  * is zero, an optimized custom SPI driver is used if it exists.
  */
@@ -110,7 +110,7 @@
  * Handle Watchdog Timer for WiFi modules.
  *
  * Yield will be called before accessing the SPI bus if it has been more
- * than WDT_YIELD_TIME_MICROS microseconds since the last yield call by SdFat.
+ * than WDT_YIELD_TIME_MICROS microseconds since the last yield call by SdFat_Gre.
  */
 #if defined(PLATFORM_ID) || defined(ESP8266)
 // If Particle device or ESP8266 call yield.
@@ -136,9 +136,9 @@
  * Call flush for endl if ENDL_CALLS_FLUSH is nonzero
  *
  * The standard for iostreams is to call flush.  This is very costly for
- * SdFat.  Each call to flush causes 2048 bytes of I/O to the SD.
+ * SdFat_Gre.  Each call to flush causes 2048 bytes of I/O to the SD.
  *
- * SdFat has a single 512 byte buffer for SD I/O so it must write the current
+ * SdFat_Gre has a single 512 byte buffer for SD I/O so it must write the current
  * data block to the SD, read the directory block from the SD, update the
  * directory entry, write the directory block to the SD and read the data
  * block back into the buffer.

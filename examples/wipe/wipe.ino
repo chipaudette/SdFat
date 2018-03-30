@@ -1,9 +1,9 @@
 // Example to wipe all data from an already formatted SD.
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 const int chipSelect = SS;
 
-SdFat sd;
+SdFat_Gre sd;
 
 void setup() {
   int c;

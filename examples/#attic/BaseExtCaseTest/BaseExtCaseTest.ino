@@ -2,13 +2,13 @@
  * Program to test Short File Name character case flags.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 const uint8_t chipSelect = SS;
 
-SdFat sd;
+SdFat_Gre sd;
 
-SdFile file;
+SdFile_Gre file;
 const char* name[] = {
   "low.low", "low.Mix", "low.UP",
   "Mix.low", "Mix.Mix", "Mix.UP",

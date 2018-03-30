@@ -4,11 +4,11 @@
  *
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
-SdFat sd;
+SdFat_Gre sd;
 
-SdFile file;
+SdFile_Gre file;
 //------------------------------------------------------------------------------
 void setup() {
   Serial.begin(9600);

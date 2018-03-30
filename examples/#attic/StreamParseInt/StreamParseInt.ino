@@ -1,13 +1,13 @@
 // Simple demo of the Stream parsInt() member function.
 #include <SPI.h>
 // The next two lines replace #include <SD.h>.
-#include "SdFat.h"
-SdFat SD;
+#include "SdFat_Gre.h"
+SdFat_Gre SD;
 
 // SD card chip select pin - Modify the value of csPin for your SD module.
 const uint8_t csPin = SS;
 
-File file;
+File_Gre file;
 //------------------------------------------------------------------------------
 void setup() {
   Serial.begin(9600);

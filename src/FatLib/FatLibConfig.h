@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -106,9 +106,9 @@
  * Call flush for endl if ENDL_CALLS_FLUSH is non-zero
  *
  * The standard for iostreams is to call flush.  This is very costly for
- * SdFat.  Each call to flush causes 2048 bytes of I/O to the SD.
+ * SdFat_Gre.  Each call to flush causes 2048 bytes of I/O to the SD.
  *
- * SdFat has a single 512 byte buffer for I/O so it must write the current
+ * SdFat_Gre has a single 512 byte buffer for I/O so it must write the current
  * data block to the SD, read the directory block from the SD, update the
  * directory entry, write the directory block to the SD and read the data
  * block back into the buffer.

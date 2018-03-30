@@ -1,6 +1,6 @@
 // This stress test will create and write files until the SD is full.
 #include <SPI.h> 
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 
 // SD chip select pin.
 const uint8_t SD_CS_PIN = SS;
@@ -25,9 +25,9 @@ const size_t BUF_SIZE = 512;
 const size_t FILE_SIZE_KB = 10240;
 const uint16_t BUFS_PER_FILE = (1024L*FILE_SIZE_KB/BUF_SIZE);
 
-SdFat sd;
+SdFat_Gre sd;
 
-SdFile file;
+SdFile_Gre file;
 
 uint8_t buf[BUF_SIZE];
 char name[13];

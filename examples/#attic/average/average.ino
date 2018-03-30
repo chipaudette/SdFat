@@ -2,13 +2,13 @@
  * Calculate the sum and average of a list of floating point numbers
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
 // object for the SD file system
-SdFat sd;
+SdFat_Gre sd;
 
 // define a serial output stream
 ArduinoOutStream cout(Serial);

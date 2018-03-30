@@ -11,7 +11,7 @@
  * marks the blocks as erased; no data transfer is required.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 // SD chip select pin
@@ -28,10 +28,10 @@ const uint32_t DOT_TIME_MS = 5000UL;
 const uint32_t BLOCK_COUNT = (1000*RATE_KB_PER_SEC*TEST_TIME_SEC + 511)/512;
 
 // file system
-SdFat sd;
+SdFat_Gre sd;
 
 // test file
-SdFile file;
+SdFile_Gre file;
 
 // file extent
 uint32_t bgnBlock, endBlock;
@@ -82,7 +82,7 @@ void loop(void) {
     error("contiguousRange failed");
   }
   //*********************NOTE**************************************
-  // NO SdFile calls are allowed while cache is used for raw writes
+  // NO SdFile_Gre calls are allowed while cache is used for raw writes
   //***************************************************************
 
   // clear the cache and use it as a 512 byte buffer

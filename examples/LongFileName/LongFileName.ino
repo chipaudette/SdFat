@@ -2,15 +2,15 @@
 // You can use test files located in
 // SdFat/examples/LongFileName/testFiles.
 #include<SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 // SD card chip select pin.
 const uint8_t SD_CS_PIN = SS;
 
-SdFat sd;
-SdFile file;
-SdFile dirFile;
+SdFat_Gre sd;
+SdFile_Gre file;
+SdFile_Gre dirFile;
 
 // Number of files found.
 uint16_t n = 0;

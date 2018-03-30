@@ -11,12 +11,12 @@
  * to the number of flash erases this program causes.
  */
 #include <SPI.h> 
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #include <SdFatUtil.h>
 
 const uint8_t SD_CHIP_SELECT = SS;
 
-SdFat sd;
+SdFat_Gre sd;
 
 // store error strings in flash to save RAM
 #define error(s) sd.errorHalt(F(s))
@@ -26,7 +26,7 @@ SdFat sd;
  */
 void dirAllocTest(FatFile* dir) {
   char buf[32], name[32];
-  SdFile file;
+  SdFile_Gre file;
   uint16_t n; 
   uint32_t size = dir->dirSize();
  
@@ -120,13 +120,13 @@ void setup() {
   }
   
   // create sub1 and write files
-  SdFile sub1;
+  SdFile_Gre sub1;
   if (!sub1.mkdir(sd.vwd(), "SUB1")) error("makdeDir SUB1 failed");
   Serial.println(F("Writing files to SUB1"));
   dirAllocTest(&sub1);
 
   // create sub2 and write files
-  SdFile sub2;
+  SdFile_Gre sub2;
   if (!sub2.mkdir(&sub1, "SUB2")) error("mkdir SUB2 failed");
   Serial.println(F("Writing files to SUB2")); 
   dirAllocTest(&sub2);

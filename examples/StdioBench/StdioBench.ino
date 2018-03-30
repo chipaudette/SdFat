@@ -1,6 +1,6 @@
-// Benchmark comparing SdFile and StdioStream.
+// Benchmark comparing SdFile_Gre and StdioStream.
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // Define PRINT_FIELD nonzero to use printField.
 #define PRINT_FIELD 0
@@ -10,9 +10,9 @@
 #define VERIFY_CONTENT 0
 
 const uint8_t SD_CS_PIN = SS;
-SdFat sd;
+SdFat_Gre sd;
 
-SdFile printFile;
+SdFile_Gre printFile;
 StdioStream stdioFile;
 
 float f[100];

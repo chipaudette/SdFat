@@ -2,7 +2,7 @@
  * This program is a simple Print benchmark.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 
 // SD chip select pin
@@ -12,10 +12,10 @@ const uint8_t chipSelect = SS;
 const uint16_t N_PRINT = 20000;
 
 // file system
-SdFat sd;
+SdFat_Gre sd;
 
 // test file
-SdFile file;
+SdFile_Gre file;
 
 // Serial output stream
 ArduinoOutStream cout(Serial);

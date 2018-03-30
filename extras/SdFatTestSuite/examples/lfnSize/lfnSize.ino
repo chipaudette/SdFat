@@ -1,17 +1,17 @@
-// Program to compare size of SdFat with the SD.h library.
+// Program to compare size of SdFat_Gre with the SD.h library.
 #include <SPI.h>
 // Select the test library by commenting out one of the following two lines.
 // #include <SD.h>
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 
 // SD chip select pin.
 const uint8_t SD_CS_PIN = SS;
 
 #ifdef __SD_H__
-File file;
+File_Gre file;
 #else  // __SD_H__
-SdFat SD;
-SdFile file;
+SdFat_Gre SD;
+SdFile_Gre file;
 #endif // __SD_H__
 
 void setup() {

@@ -14,7 +14,7 @@
  * Data is written to the file using a SD multiple block write command.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 #include "FreeStack.h"
 #include "UserTypes.h"
 
@@ -100,9 +100,9 @@ const uint8_t BASE_NAME_SIZE = sizeof(FILE_BASE_NAME) - 1;
 const uint8_t FILE_NAME_DIM  = BASE_NAME_SIZE + 7;
 char binName[FILE_NAME_DIM] = FILE_BASE_NAME "00.bin";
 
-SdFat sd;
+SdFat_Gre sd;
 
-SdBaseFile binFile;
+SdBaseFile_Gre binFile;
 
 // Number of data records in a block.
 const uint16_t DATA_DIM = (512 - 4)/sizeof(data_t);
@@ -181,7 +181,7 @@ void binaryToCsv() {
   block_t block;
   uint32_t t0 = millis();
   uint32_t syncCluster = 0;
-  SdFile csvFile;
+  SdFile_Gre csvFile;
   char csvName[FILE_NAME_DIM];
 
   if (!binFile.isOpen()) {

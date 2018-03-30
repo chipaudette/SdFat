@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -23,42 +23,42 @@
  * DEALINGS IN THE SOFTWARE.
  */
 /**
-\mainpage Arduino %SdFat Library
+\mainpage Arduino %SdFat_Gre Library
 <CENTER>Copyright &copy; 2012, 2013, 2014, 2015, 2016 by William Greiman
 </CENTER>
 
 \section Intro Introduction
-The Arduino %SdFat Library is a minimal implementation of FAT16 and FAT32
+The Arduino %SdFat_Gre Library is a minimal implementation of FAT16 and FAT32
 file systems on SD flash memory cards. Standard SD and high capacity SDHC
 cards are supported.
 
 Experimental support for FAT12 can be enabled by setting FAT12_SUPPORT
 nonzero in SdFatConfig.h.
 
-The %SdFat library supports Long %File Names or short 8.3 names.
+The %SdFat_Gre library supports Long %File_Gre Names or short 8.3 names.
 Edit the SdFatConfig.h file to select short or long file names.
 
-The main classes in %SdFat are SdFat, SdFatEX, SdFatSoftSpi, SdFatSoftSpiEX,
-SdBaseFile, SdFile, File, StdioStream, \ref fstream, \ref ifstream,
+The main classes in %SdFat_Gre are SdFat_Gre, SdFatEX, SdFatSoftSpi, SdFatSoftSpiEX,
+SdBaseFile_Gre, SdFile_Gre, File_Gre, StdioStream, \ref fstream, \ref ifstream,
 and \ref ofstream.
 
-The SdFat, SdFatEX, SdFatSoftSpi and SdFatSoftSpiEX classes maintain a
+The SdFat_Gre, SdFatEX, SdFatSoftSpi and SdFatSoftSpiEX classes maintain a
 FAT volume, a current working directory, and simplify initialization
-of other classes. The SdFat and SdFatEX classes uses a fast custom hardware SPI
+of other classes. The SdFat_Gre and SdFatEX classes uses a fast custom hardware SPI
 implementation.  The SdFatSoftSpi and SdFatSoftSpiEX classes uses software SPI.
 
 the SdFatEX and SdFatSoftSpiEX use extended multi-block I/O for enhanced
 performance.  These classes must have exclusive use of the SPI bus.
 
-The SdBaseFile class provides basic file access functions such as open(),
-binary read(), binary write(), close(), remove(), and sync(). SdBaseFile
+The SdBaseFile_Gre class provides basic file access functions such as open(),
+binary read(), binary write(), close(), remove(), and sync(). SdBaseFile_Gre
 is the smallest file class.
 
-The SdFile class has all the SdBaseFile class functions plus the Arduino
+The SdFile_Gre class has all the SdBaseFile_Gre class functions plus the Arduino
 Print class functions.
 
-The File class has all the SdBaseFile functions plus the functions in
-the Arduino SD.h File class. This provides compatibility with the
+The File_Gre class has all the SdBaseFile_Gre functions plus the functions in
+the Arduino SD.h File_Gre class. This provides compatibility with the
 Arduino SD.h library.
 
 The StdioStream class implements functions similar to Linux/Unix standard
@@ -85,28 +85,28 @@ The classes \ref ibufstream and \ref obufstream format and parse character
 the classes ArduinoInStream and ArduinoOutStream provide iostream functions
 for Serial, LiquidCrystal, and other devices.
 
-A number of example are provided in the %SdFat/examples folder.  These were
-developed to test %SdFat and illustrate its use.
+A number of example are provided in the %SdFat_Gre/examples folder.  These were
+developed to test %SdFat_Gre and illustrate its use.
 
 \section Install Installation
 
-You must manually install SdFat by copying the SdFat folder from the download
+You must manually install SdFat_Gre by copying the SdFat_Gre folder from the download
 package to the Arduino libraries folder in your sketch folder.
 
 See the Manual installation section of this guide.
 
 http://arduino.cc/en/Guide/Libraries
 
-\section SDconfig SdFat Configuration
+\section SDconfig SdFat_Gre Configuration
 
 Several configuration options may be changed by editing the SdFatConfig.h
-file in the %SdFat folder.
+file in the %SdFat_Gre folder.
 
-Set USE_LONG_FILE_NAMES nonzero to enable Long %File Names.  By default,
-Long %File Names are enabled. For the leanest fastest library disable
-Long %File Names.  Long %File names require extra flash but no extra RAM.
-Opening Long %File Names can be slower than opening Short %File Names.
-Data read and write performance is not changed by the type of %File Name.
+Set USE_LONG_FILE_NAMES nonzero to enable Long %File_Gre Names.  By default,
+Long %File_Gre Names are enabled. For the leanest fastest library disable
+Long %File_Gre Names.  Long %File_Gre names require extra flash but no extra RAM.
+Opening Long %File_Gre Names can be slower than opening Short %File_Gre Names.
+Data read and write performance is not changed by the type of %File_Gre Name.
 
 If the symbol ENABLE_EXTENDED_TRANSFER_CLASS is nonzero, the class SdFatEX
 will be defined. If the symbol ENABLE_SOFTWARE_SPI_CLASS is also nonzero,
@@ -126,31 +126,31 @@ FAT12 has not been well tested and requires additional flash.
 
 \section SDPath Paths and Working Directories
 
-Relative paths in SdFat are resolved in a manner similar to Windows.
+Relative paths in SdFat_Gre are resolved in a manner similar to Windows.
 
-Each instance of SdFat has a current directory.  In SdFat this directory
+Each instance of SdFat_Gre has a current directory.  In SdFat_Gre this directory
 is called the volume working directory, vwd.  Initially this directory is
 the root directory for the volume.
 
-The volume working directory is changed by calling SdFat::chdir(path).
+The volume working directory is changed by calling SdFat_Gre::chdir(path).
 
 The call sd.chdir("/2014") will change the volume working directory
 for sd to "/2014", assuming "/2014" exists.
 
-Relative paths for SdFat member functions are resolved by starting at
+Relative paths for SdFat_Gre member functions are resolved by starting at
 the volume working directory.
 
 For example, the call sd.mkdir("April") will create the directory
 "/2014/April" assuming the volume working directory is "/2014".
 
-SdFat has a current working directory, cwd, that is used to resolve paths
+SdFat_Gre has a current working directory, cwd, that is used to resolve paths
 for file.open() calls.
 
 For a single SD card the current working directory is always the volume
 working directory for that card.
 
 For multiple SD cards the current working directory is set to the volume
-working directory of a card by calling the SdFat::chvol() member function.
+working directory of a card by calling the SdFat_Gre::chvol() member function.
 The chvol() call is like the Windows \<drive letter>: command.
 
 The call sd2.chvol() will set the current working directory to the volume
@@ -165,11 +165,11 @@ will then open "/music/BigBand.wav" on sd2.
 The following functions are used to change or get current directories.
 See the html documentation for more information.
 @code
-bool SdFat::chdir(bool set_cwd = false);
-bool SdFat::chdir(const char* path, bool set_cwd = false);
-void SdFat::chvol();
-SdBaseFile* SdFat::vwd();
-static SdBaseFile* SdBaseFile::cwd();
+bool SdFat_Gre::chdir(bool set_cwd = false);
+bool SdFat_Gre::chdir(const char* path, bool set_cwd = false);
+void SdFat_Gre::chvol();
+SdBaseFile_Gre* SdFat_Gre::vwd();
+static SdBaseFile_Gre* SdBaseFile_Gre::cwd();
 @endcode
 
 \section SDcard SD\SDHC Cards
@@ -190,7 +190,7 @@ limited RAM.
 
 \section Hardware Hardware Configuration
 
-%SdFat was developed using an
+%SdFat_Gre was developed using an
 <A HREF = "http://www.adafruit.com/"> Adafruit Industries</A>
 Data Logging Shield.
 
@@ -220,9 +220,9 @@ the bug or problem.
 
 \section Trouble Troubleshooting
 
-The two example programs QuickStart, and SdInfo are useful for troubleshooting.
+The two example programs QuickStart, and SdInfo_Gre are useful for troubleshooting.
 
-A message like this from SdInfo with erorCode 0X1 indicates the SD card
+A message like this from SdInfo_Gre with erorCode 0X1 indicates the SD card
 is not seen by SdFat.  This is often caused by a wiring error and reformatting
 the card will not solve the problem.
 <PRE>
@@ -262,9 +262,9 @@ If you are using a Teensy try.
 
 http://forum.pjrc.com/forum.php
 
-\section SdFatClass SdFat Usage
+\section SdFatClass SdFat_Gre Usage
 
-SdFat supports Long File Names.  Long names in SdFat are limited to 7-bit
+SdFat_Gre supports Long File Names.  Long names in SdFat_Gre are limited to 7-bit
 ASCII characters in the range 0X20 - 0XFE The following are reserved characters:
     <ul>
     <li>< (less than)
@@ -277,7 +277,7 @@ ASCII characters in the range 0X20 - 0XFE The following are reserved characters:
     <li>? (question mark)
     <li>* (asterisk)
     </ul>
-%SdFat uses a slightly restricted form of short names.
+%SdFat_Gre uses a slightly restricted form of short names.
 Short names are limited to 8 characters followed by an optional period (.)
 and extension of up to 3 characters.  The characters may be any combination
 of letters and digits.  The following special characters are also allowed:
@@ -338,7 +338,7 @@ A number of examples are provided in the SdFat/examples folder.
 See the html documentation for a list.
 
 To access these examples from the Arduino development environment
-go to:  %File -> Examples -> %SdFat -> \<program Name\>
+go to:  %File_Gre -> Examples -> %SdFat -> \<program Name\>
 
 Compile, upload to your Arduino and click on Serial Monitor to run
 the example.
@@ -383,13 +383,13 @@ ReadCsvArray - Read a two dimensional array from a CSV file.
 
 ReadWrite - Compatibility test of Arduino SD ReadWrite example.
 
-rename - A demo of SdFat::rename(old, new) and SdFile::rename(dirFile, newPath).
+rename - A demo of SdFat_Gre::rename(old, new) and SdFile_Gre::rename(dirFile, newPath).
 
 SdFormatter - This program will format an SD or SDHC card.
 
 SoftwareSpi - Simple demonstration of the SdFatSoftSpi template class.
 
-SdInfo - Initialize an SD card and analyze its structure for trouble shooting.
+SdInfo_Gre - Initialize an SD card and analyze its structure for trouble shooting.
 
 StdioBench - Demo and test of stdio style stream.
 

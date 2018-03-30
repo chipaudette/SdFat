@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -22,8 +22,8 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-#ifndef FatStructs_h
-#define FatStructs_h
+#ifndef FatStructs_Gre_h
+#define FatStructs_Gre_h
 /**
  * \file
  * \brief FAT file structures
@@ -41,13 +41,13 @@ const uint8_t BOOTSIG1 = 0XAA;
 const uint8_t EXTENDED_BOOT_SIG = 0X29;
 //------------------------------------------------------------------------------
 /**
- * \struct partitionTable
+ * \struct partitionTable_Gre
  * \brief MBR partition table entry
  *
  * A partition table entry for a MBR formatted storage device.
  * The MBR partition table has four entries.
  */
-struct partitionTable {
+struct partitionTable_Gre {
   /**
    * Boot Indicator . Indicates whether the volume is the active
    * partition.  Legal values include: 0X00. Do not use for booting.
@@ -98,17 +98,17 @@ struct partitionTable {
   /** Length of the partition, in blocks. */
   uint32_t totalSectors;
 } __attribute__((packed));
-/** Type name for partitionTable */
-typedef struct partitionTable part_t;
+/** Type name for partitionTable_Gre */
+typedef struct partitionTable_Gre part_t;
 //------------------------------------------------------------------------------
 /**
- * \struct masterBootRecord
+ * \struct masterBootRecord_Gre
  *
  * \brief Master Boot Record
  *
  * The first block of a storage device that is formatted with a MBR.
  */
-struct masterBootRecord {
+struct masterBootRecord_Gre {
   /** Code Area for master boot program. */
   uint8_t  codeArea[440];
   /** Optional Windows NT disk signature. May contain boot code. */
@@ -122,17 +122,17 @@ struct masterBootRecord {
   /** Second MBR signature byte. Must be 0XAA */
   uint8_t  mbrSig1;
 } __attribute__((packed));
-/** Type name for masterBootRecord */
-typedef struct masterBootRecord mbr_t;
+/** Type name for masterBootRecord_Gre */
+typedef struct masterBootRecord_Gre mbr_t;
 //------------------------------------------------------------------------------
 /**
- * \struct biosParmBlock
+ * \struct biosParmBlock_Gre
  *
  * \brief BIOS parameter block
  *
  *  The BIOS parameter block describes the physical layout of a FAT volume.
  */
-struct biosParmBlock {
+struct biosParmBlock_Gre {
           /**
            * Count of bytes per sector. This value may take on only the
            * following values: 512, 1024, 2048 or 4096
@@ -244,8 +244,8 @@ struct biosParmBlock {
            */
   uint8_t  fat32Reserved[12];
 } __attribute__((packed));
-/** Type name for biosParmBlock */
-typedef struct biosParmBlock bpb_t;
+/** Type name for biosParmBlock_Gre */
+typedef struct biosParmBlock_Gre bpb_t;
 //------------------------------------------------------------------------------
 /**
  * \struct fat_boot
@@ -586,7 +586,7 @@ const uint32_t FAT32EOC_MIN = 0X0FFFFFF8;
 const uint32_t FAT32MASK = 0X0FFFFFFF;
 //------------------------------------------------------------------------------
 /**
- * \struct directoryEntry
+ * \struct directoryEntry_Gre
  * \brief FAT short directory entry
  *
  * Short means short 8.3 name, not the entry size.
@@ -615,7 +615,7 @@ const uint32_t FAT32MASK = 0X0FFFFFFF;
  *
  * The valid time range is from Midnight 00:00:00 to 23:59:58.
  */
-struct directoryEntry {
+struct directoryEntry_Gre {
   /** Short 8.3 name.
    *
    * The first eight bytes contain the file name with blank fill.
@@ -664,8 +664,8 @@ struct directoryEntry {
   /** 32-bit unsigned holding this file's size in bytes. */
   uint32_t fileSize;
 } __attribute__((packed));
-/** Type name for directoryEntry */
-typedef struct directoryEntry dir_t;
+/** Type name for directoryEntry_Gre */
+typedef struct directoryEntry_Gre dir_t;
 //------------------------------------------------------------------------------
 // Definitions for directory entries
 //
@@ -879,4 +879,4 @@ typedef struct longDirectoryEntry ldir_t;
  * begin with an entry having this mask.
  */
 const uint8_t LDIR_ORD_LAST_LONG_ENTRY = 0X40;
-#endif  // FatStructs_h
+#endif  // FatStructs_Gre_h

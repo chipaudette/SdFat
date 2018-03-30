@@ -1,7 +1,7 @@
 #include <SPI.h>
-#include <SdFat.h>
+#include <SdFat_Gre.h>
 #include <SdFatTestSuite.h>
-SdFat sd;
+SdFat_Gre sd;
 const char *testName = "SDFAT.TST";
 //------------------------------------------------------------------------------
 void fstreamOpen() {

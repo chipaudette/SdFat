@@ -2,7 +2,7 @@
  * This program demonstrates the freeClusterCount() call.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 /*
  * SD chip select pin.  Common values are:
  *
@@ -15,10 +15,10 @@ const uint8_t chipSelect = SS;
 
 #define TEST_FILE "Cluster.test"
 // file system
-SdFat sd;
+SdFat_Gre sd;
 
 // test file
-SdFile file;
+SdFile_Gre file;
 
 // Serial output stream
 ArduinoOutStream cout(Serial);

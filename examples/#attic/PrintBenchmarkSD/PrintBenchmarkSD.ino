@@ -12,7 +12,7 @@ const uint16_t N_PRINT = 20000;
 
 
 // test file
-File file;
+File_Gre file;
 
 //------------------------------------------------------------------------------
 void error(const char* s) {

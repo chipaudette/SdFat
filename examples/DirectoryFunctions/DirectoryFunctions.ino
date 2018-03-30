@@ -2,17 +2,17 @@
  * Example use of chdir(), ls(), mkdir(), and  rmdir().
  */
 #include <SPI.h> 
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD card chip select pin.
 const uint8_t chipSelect = SS;
 //------------------------------------------------------------------------------
 
 // File system object.
-SdFat sd;
+SdFat_Gre sd;
 
 // Use for file creation in folders.
-SdFile file;
+SdFile_Gre file;
 
 // Create a Serial output stream.
 ArduinoOutStream cout(Serial);

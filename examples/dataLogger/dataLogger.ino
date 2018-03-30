@@ -2,7 +2,7 @@
  * Simple data logger.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin.  Be sure to disable any other SPI devices such as Enet.
 const uint8_t chipSelect = SS;
@@ -17,10 +17,10 @@ const uint32_t SAMPLE_INTERVAL_MS = 1000;
 #define FILE_BASE_NAME "Data"
 //------------------------------------------------------------------------------
 // File system object.
-SdFat sd;
+SdFat_Gre sd;
 
 // Log file.
-SdFile file;
+SdFile_Gre file;
 
 // Time in micros for next data record.
 uint32_t logTime;

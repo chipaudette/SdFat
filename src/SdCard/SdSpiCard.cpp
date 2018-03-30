@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -250,12 +250,12 @@ uint8_t SdSpiCard::cardCommand(uint8_t cmd, uint32_t arg) {
 }
 //------------------------------------------------------------------------------
 uint32_t SdSpiCard::cardSize() {
-  csd_t csd;
+  csd_Gre_t csd;
   return readCSD(&csd) ? sdCardCapacity(&csd) : 0;
 }
 //------------------------------------------------------------------------------
 bool SdSpiCard::erase(uint32_t firstBlock, uint32_t lastBlock) {
-  csd_t csd;
+  csd_Gre_t csd;
   if (!readCSD(&csd)) {
     goto fail;
   }
@@ -292,7 +292,7 @@ fail:
 }
 //------------------------------------------------------------------------------
 bool SdSpiCard::eraseSingleBlockEnable() {
-  csd_t csd;
+  csd_Gre_t csd;
   return readCSD(&csd) ? csd.v1.erase_blk_en : false;
 }
 //------------------------------------------------------------------------------

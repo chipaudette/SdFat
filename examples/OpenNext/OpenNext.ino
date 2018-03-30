@@ -2,15 +2,15 @@
  * Print size, modify date/time, and name for all files in root.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD default chip select pin.
 const uint8_t chipSelect = SS;
 
 // file system object
-SdFat sd;
+SdFat_Gre sd;
 
-SdFile file;
+SdFile_Gre file;
 //------------------------------------------------------------------------------
 void setup() {
   Serial.begin(9600);

@@ -7,13 +7,13 @@
  * may not the best way to read a file.
  */
 #include <SPI.h>
-#include "SdFat.h"
+#include "SdFat_Gre.h"
 
 // SD chip select pin
 const uint8_t chipSelect = SS;
 
 // file system object
-SdFat sd;
+SdFat_Gre sd;
 
 // create a serial stream
 ArduinoOutStream cout(Serial);

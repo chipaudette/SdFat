@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 20011-2017 Bill Greiman
- * This file is part of the SdFat library for SD memory cards.
+ * This file is part of the SdFat_Gre library for SD memory cards.
  *
  * MIT License
  *
@@ -119,9 +119,9 @@ class PrintFile : public FatFile, public Print {
  * \class File
  * \brief Arduino SD.h style File API
  */
-class File : public FatFile, public Stream {
+class File_Gre : public FatFile, public Stream {
  public:
-  File() {}
+  File_Gre() {}
   /**  Create a file object and open it in the current working directory.
    *
    * \param[in] path A path with a valid 8.3 DOS name for a file to be opened.
@@ -130,7 +130,7 @@ class File : public FatFile, public Stream {
    * bitwise-inclusive OR of open flags. see
    * FatFile::open(FatFile*, const char*, uint8_t).
    */
-  File(const char* path, uint8_t oflag) {
+  File_Gre(const char* path, uint8_t oflag) {
     open(path, oflag);
   }
   using FatFile::clearWriteError;
@@ -185,8 +185,8 @@ class File : public FatFile, public Stream {
    * \param[in] mode open mode flags.
    * \return a File object.
    */
-  File openNextFile(uint8_t mode = O_READ) {
-    File tmpFile;
+  File_Gre openNextFile(uint8_t mode = O_READ) {
+    File_Gre tmpFile;
     tmpFile.openNext(this, mode);
     return tmpFile;
   }
